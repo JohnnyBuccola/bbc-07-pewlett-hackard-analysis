@@ -21,4 +21,9 @@ The purpose of this analysis is to provide managers with information regarding u
     ``` SQL
     SELECT COUNT (emp_no) FROM unique_titles; 
     ```
-* We can tell whether there are enough qualified employees
+    
+* Are there enough qualified, retirement-ready employees to provide mentorship for the younger generation? The `COUNT` of employees in the `mentorship_elegibility.csv` referenced above is **1549**. To find the number of employees that may need mentorship, we can find the count of employees between younger than 35 years old (with respect to the apparent age of the data -- year 2000 -- this appears to be the "young" generation) using the following query:
+    ``` SQL
+    SELECT COUNT (emp_no) FROM employees WHERE (birth_date > '1965-01-01');
+    ```
+    The result of this query is **1879** "young" employees at Pewlett-Hackard.  Compared to the **1549** eligible mentors, this means the ratio of mentors to young employees is roughly **1:1.2**, which means that only a few employees will have to share a mentor. 
